@@ -9,31 +9,31 @@ const cartReducer = (state, action) => {
             };
 
 
-        case 'ADD_TO_CART':
-            const newItemId = action.payload.item.id;
-            const itemExist = state.cartItems.some(item => item.id === newItemId);
-
-            let updatedCartItems = null;
-
-            if (itemExist) {
-                updatedCartItems = state.cartItems.map(item => {
-                    if (item.id === newItemId) {
-                        return {
-                            ...item,
-                            quantity: item.quantity + 1
-                        };
-                    }
-                    return item;
-                });
-            } else {
-                updatedCartItems = [...state.cartItems, action.payload.item];
-            }
-
-            return {
-                ...state,
-                cartItems: updatedCartItems
-            };
-
+            case 'ADD_TO_CART':
+                const newItem = action.payload.item;
+                const itemExist = state.cartItems.some(item => item.id === newItem.id);
+            
+                let updatedCartItems = null;
+            
+                if (itemExist) {
+                    updatedCartItems = state.cartItems.map(item => {
+                        if (item.id === newItem.id) {
+                            return {
+                                ...item,
+                                quantity: item.quantity + 1
+                            };
+                        }
+                        return item;
+                    });
+                } else {
+                    updatedCartItems = [...state.cartItems, { ...newItem, quantity: newItem.quantity || 1 }];
+                }
+            
+                return {
+                    ...state,
+                    cartItems: updatedCartItems
+                };
+            
 
         case 'REMOVE_FROM_CART':
             return {

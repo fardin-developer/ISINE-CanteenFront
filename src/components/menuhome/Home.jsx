@@ -11,7 +11,7 @@ const Home = () => {
         const response = await fetch('http://localhost:8000/api/v1/meals', {
           method: 'GET',
           headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnNkZmQiLCJ1c2VySWQiOiI2NjYzZjQ2NDA4Y2Y1NDVjNDQ5YWE2ZDQiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMDc3NTI1MCwiZXhwIjoxNzIwODYxNjUwfQ.Vd6W1rgxoyTLfHiNx77SZf8FLrjfNt_3Qs2vyheUctw',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnNkZmQiLCJ1c2VySWQiOiI2NjYzZjQ2NDA4Y2Y1NDVjNDQ5YWE2ZDQiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMDc3ODgxMSwiZXhwIjoxNzIwODY1MjExfQ.vPudsD8AruA2F9KfFRzr_WTKpQCUHxS2ZUYhd4r0Km0',
             'Content-Type': 'application/json'
           }
         });

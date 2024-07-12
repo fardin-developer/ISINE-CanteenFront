@@ -38,7 +38,7 @@ const Restraunt = () => {
     };
     return (
         <>
-        <div className="menu-header" style={{backgroundColor:"red"}}>
+        <div className="menu-header">
                 <h1>Our Menu</h1>
                 <p>We know everyone has different cravings, so our menu offers a<br></br> variety of dishes to satisfy every taste bud.</p>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
@@ -25,17 +25,25 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click)
 
-
-
   return (
     <header id='header'>
       <div className={`mobileMenu ${click ? 'mobileMenu' : 'mobilemenuHide'}`}>
         <ul>
-          <li onClick={() => handleComponentClick('home')}>Home</li>
-          <li onClick={() => handleComponentClick('menu')}>Menu</li>
-          <li onClick={() => handleComponentClick('about')}>About</li>
-          <li onClick={() => handleComponentClick('contact')}>Contact Us</li>
-          <li onClick={() => handleComponentClick('feedback')}>Feedback</li>
+          <li onClick={() => handleComponentClick('home')} className={activeComponent === 'home' ? 'active' : ''}>
+            <Link to='/'>Home</Link>
+          </li>
+          <li onClick={() => handleComponentClick('menu')} className={activeComponent === 'menu' ? 'active' : ''}>
+            <Link to='/menu'>Menu</Link>
+          </li>
+          <li onClick={() => handleComponentClick('about')} className={activeComponent === 'about' ? 'active' : ''}>
+            <Link to='/about'>About</Link>
+          </li>
+          <li onClick={() => handleComponentClick('contact')} className={activeComponent === 'contact' ? 'active' : ''}>
+            <Link to='/contact'>Contact</Link>
+          </li>
+          <li onClick={() => handleComponentClick('feedback')} className={activeComponent === 'feedback' ? 'active' : ''}>
+            <Link to='/feedback'>Feedback</Link>
+          </li>
         </ul>
       </div>
       <div ref={navbarRef} className='navbar'>
