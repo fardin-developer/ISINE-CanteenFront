@@ -1,0 +1,63 @@
+.homepage-info {
+    display: flex;
+    padding: 2vw 2vw;
+   
+  }
+  
+  .info-img {
+    flex: 2;
+    padding-left: 8vw;
+    padding-right: 2vw; 
+  }
+  
+  .foodposter-img {
+    width: 100%;
+    
+    border-radius: 25px; 
+  }
+  
+  .info-part {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px; 
+  }
+  
+  .info-part h2 {
+    font-size: 4vw; 
+    font-weight: 500;
+    margin-bottom: 1.5vw;
+    line-height: 1.1;
+    
+  }
+  
+  .info-part h5 {
+    font-size: 1.25vw;
+    margin-bottom: 1vw; 
+  }
+  
+  .info-part p {
+    margin-bottom: 1.5vw; 
+  }
+  
+ 
+  .aboutus-button {
+    font-size: max(1vw, 15px);
+    padding: 1vw 2vw;
+    font-weight: 400;
+   
+    color: black;
+    background-color: none;
+    border: 1px solid black; 
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    display: inline-block; 
+}
+
+.aboutus-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid black;
+}

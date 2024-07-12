@@ -1,0 +1,135 @@
+.browse-menu {
+  padding: 0vw 4vw;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  margin-bottom: 8vw;
+}
+
+.browsemenu-heading {
+  font-size: max(3.5vw, 18px);
+  text-align: center;
+  padding: 3vw 2vw;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu-box {
+  width: 23%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-image {
+  width: 35%;
+  height: 11vw;
+  padding: 2vw 0vw;
+  transition: transform 0.3s ease;
+}
+.menu-image:hover {
+  transform: scale(1.1);
+}
+
+.menu-details {
+  margin-top: 10px;
+}
+
+.menu-details h3 {
+  font-weight: 600;
+  font-size: max(1.5vw, 18px);
+  padding: 1vw 0vw;
+}
+
+.menu-details p {
+  padding: 1vw 0vw;
+}
+
+.explore-menu {
+  font-size: max(1vw, 13px);
+  color: #c54c56;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.explore-menu:hover {
+  color: hsl(355, 100%, 48%);
+}
+
+
+
+
+.homepage-info {
+    display: flex;
+    padding: 2vw 2vw;
+   
+  }
+  
+  .info-img {
+    flex: 2;
+    padding-left: 8vw;
+    padding-right: 2vw; 
+  }
+  
+  .foodposter-img {
+    width: 100%;
+    
+    border-radius: 25px; 
+  }
+  
+  .info-part {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px; 
+  }
+  
+  .info-part h2 {
+    font-size: 4vw; 
+    font-weight: 500;
+    margin-bottom: 1.5vw;
+    line-height: 1.1;
+    
+  }
+  
+  .info-part h5 {
+    font-size: 1.25vw;
+    margin-bottom: 1vw; 
+  }
+  
+  .info-part p {
+    margin-bottom: 1.5vw; 
+  }
+  
+ 
+  .aboutus-button {
+    font-size: max(1vw, 15px);
+    padding: 1vw 2vw;
+    font-weight: 400;
+   
+    color: black;
+    background-color: none;
+    border: 1px solid black; 
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    display: inline-block; 
+}
+
+.aboutus-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid black;
+}
+
