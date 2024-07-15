@@ -4,6 +4,7 @@ import ProductsCard from '../../components/MenuCard/Menucard';
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true); // State to manage loading
+  const [error, setError] = useState(null); // State to manage errors
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,10 +16,22 @@ const Home = () => {
             'Content-Type': 'application/json'
           }
         });
+
+        if (response.status === 401) {
+          setError('Unauthorized access');
+          setLoading(false);
+          return;
+        }
+
         const data = await response.json();
-        setProducts(data.meals);
+
+        if (Array.isArray(data.meals)) {
+          setProducts(data.meals);
+        } else {
+          setError('Invalid data format');
+        }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setError('Error fetching data');
       } finally {
         setLoading(false);
       }
@@ -28,27 +41,25 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <section id="home" style={{display:'flex',justifyContent:'center'}}>
-        <div className="container">
-          <div className="home_content">
-            <div className="main-card--container">
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
-                products.length < 1 ? (
-                  <p>No products available</p>
-                ) : (
-                  products.map((product) => (
-                    <ProductsCard key={product.id} product={product} />
-                  ))
-                )
-              )}
-            </div>
+    <section id="home" style={{ display: 'flex', justifyContent: 'center' }}>
+      <div className="container">
+        <div className="home_content">
+          <div className="main-card--container">
+            {loading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>{error}</p>
+            ) : products.length < 1 ? (
+              <p>No products available</p>
+            ) : (
+              products.map((product) => (
+                <ProductsCard key={product.id} product={product} />
+              ))
+            )}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
