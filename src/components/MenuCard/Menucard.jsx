@@ -4,7 +4,7 @@ import cartContext from '../context/cartContext'
 const ProductsCard = props => {
   const { image, id, category, price, name, description } = props.product
   // let cartItems = 
-  console.log(props.product)
+  // console.log(props.product)
 
   const { addItem } = useContext(cartContext)
 

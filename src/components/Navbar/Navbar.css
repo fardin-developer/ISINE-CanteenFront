@@ -117,6 +117,9 @@
     margin-top: 40px;
 
 }
+.cart_icon{
+    cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {    
     .navbar .left{

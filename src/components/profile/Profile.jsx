@@ -1,55 +1,89 @@
-import React from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
+import React, { useEffect } from 'react'
+import './Profile.css'
+import { useNavigate } from 'react-router-dom'
 
-export default function Profile() {
+const Profile = () => {
+  const navigate = useNavigate()
+  const handleBackClick = () => {
+    navigate(-1)
+  }
+
   return (
-    <div className="vh-100" style={{ backgroundColor: '#eee' }}>
-      <MDBContainer className="container py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol md="12" xl="4">
-            <MDBCard style={{ borderRadius: '15px' }}>
-              <MDBCardBody className="text-center">
-                <div className="mt-3 mb-4">
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                    className="rounded-circle" fluid style={{ width: '100px' }} />
-                </div>
-                <MDBTypography tag="h4">Julie L. Arsenault</MDBTypography>
-                <MDBCardText className="text-muted mb-4">
-                  @Programmer <span className="mx-2">|</span> <a href="#!">mdbootstrap.com</a>
-                </MDBCardText>
-                <div className="mb-4 pb-2">
-                  <MDBBtn outline floating>
-                    <MDBIcon fab icon="facebook" size="lg" />
-                  </MDBBtn>
-                  <MDBBtn outline floating className="mx-1">
-                    <MDBIcon fab icon="twitter" size="lg" />
-                  </MDBBtn>
-                  <MDBBtn outline floating>
-                    <MDBIcon fab icon="skype" size="lg" />
-                  </MDBBtn>
-                </div>
-                <MDBBtn rounded size="lg">
-                  Message now
-                </MDBBtn>
-                <div className="d-flex justify-content-between text-center mt-5 mb-2">
-                  <div>
-                    <MDBCardText className="mb-1 h5">8471</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">Wallets Balance</MDBCardText>
+    <>
+      <div>
+        <div className='profile-container'>
+          <div className='profileNav'>
+            <div className='profileNavLeft' onClick={handleBackClick}>
+              <img src='arrow.png' alt='' srcset='' width='20px' />
+            </div>
+            <div className='profileNavRight'></div>
+          </div>
+          <div className='profilebottom'>
+            <div className='profileData'>
+              <div className='profImg'>
+                <img
+                  className='profile-image'
+                  src='/payment.jpg'
+                  alt='Profile'
+                />
+              </div>
+              <div className='profile-header'>
+                <h2 className='profile-name'>Arian Zesan</h2>
+                <p className='profile-activity'>View activity</p>
+              </div>
+              <div className='profileReport'>
+                <div className='profileReportLeft'>100</div>
+                <div className='profileReportRight'>100</div>
+              </div>
+            </div>
+            <div className='profmenu'>
+              <div className='profile-options'>
+                <div className='profile-option'>
+                  <div className='profile-optionLeft'>
+                    <span className='icon'>💰</span>
+                    <p>Payments</p>
                   </div>
-                  <div className="px-3">
-                    <MDBCardText className="mb-1 h5">8512</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">Followers</MDBCardText>
-                  </div>
-                  <div>
-                    <MDBCardText className="mb-1 h5">4751</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">Total Transactions</MDBCardText>
-                  </div>
+                  <span>
+                    {' '}
+                    <img
+                      className='rightarrow'
+                      src='/right-arrow.png'
+                      alt=''
+                    />{' '}
+                  </span>
                 </div>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </div>
-  );
+                <div className='profile-option'>
+                  <div className='profile-optionLeft'>
+                    <span className='icon'>⚙️</span>
+                    <p>Profile Settings</p>
+                  </div>
+                  <span> <img className='rightarrow' src="/right-arrow.png" alt="" /> </span>
+
+                </div>
+                <div className='profile-option'>
+                  <div className='profile-optionLeft'>
+                    <span className='icon'>🛒</span>
+                    <p>Order History</p>
+                  </div>
+                  <span> <img className='rightarrow' src="/right-arrow.png" alt="" /> </span>
+
+                </div>
+                <div className='profile-option'>
+                <div className='profile-optionLeft'>
+                  <span className='icon'>📅</span>
+                  <p>Booking</p>
+                  </div>
+                  <span> <img className='rightarrow' src="/right-arrow.png" alt="" /> </span>
+
+                </div>
+              </div>
+              <button className='sign-out'>Sign Out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
+
+export default Profile

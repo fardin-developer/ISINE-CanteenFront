@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { BASE_URL } from '../../../api/baseUrl';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({onLogin}) => {
   const [formData, setFormData] = useState({
@@ -9,8 +10,7 @@ const Login = ({onLogin}) => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  // const history = useHistory();
-  console.log(onLogin);
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +49,8 @@ const Login = ({onLogin}) => {
         if (data && data.cookies) {
           localStorage.setItem('cookies', JSON.stringify(data.cookies));
           onLogin(data.cookies); // Pass user data to App component
-          log(data.cookies)
+          console.log(data.cookies)
+          navigate('/')
           // history.push('/profile'); // Redirect to profile page after successful login
         } else {
           setError('Invalid login credentials');
@@ -92,6 +93,9 @@ const Login = ({onLogin}) => {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
+      </div>
+      <div className="bottom">
+        <h2>ISINE</h2>
       </div>
     </div>
   );

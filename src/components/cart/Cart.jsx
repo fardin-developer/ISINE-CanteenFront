@@ -10,7 +10,8 @@ const Cart = () => {
     toggleCart,
     removeItem,
     incrementItem,
-    decrementItem
+    decrementItem,
+    clearCart
   } = useContext(cartContext)
   const [items, setItems] = useState([])
   const [visible, setVisible] = useState(true)
@@ -56,7 +57,7 @@ const Cart = () => {
         setVisible(false)
 
       const orderData = { items: items }
-      console.log(orderData)
+      // console.log(orderData)
 
       const token = JSON.parse(localStorage.getItem('cookies'));
 
@@ -71,7 +72,8 @@ const Cart = () => {
         orderData,
         config
       )
-      // console.log('Order response:', response.data);
+      console.log('Order response:', response.data);
+      clearCart()
       navigate('/payment')
     } catch (error) {
       console.error('Error placing order:', error)
@@ -142,7 +144,7 @@ const Cart = () => {
                 <b>₹ {cartTotal.toLocaleString()}</b>
               </h3>
 
-              {visible && (
+              {visible ? (
                 <button
                   type='button'
                   className='checkout_btn'
@@ -151,7 +153,13 @@ const Cart = () => {
                 >
                   Checkout
                 </button>
-              )}
+              ):( <button
+                type='button'
+                className='checkout_btn'
+                disabled={cartQuantity === 0}
+              >
+                Loading...
+              </button>)}
             </div>
           </div>
         </div>

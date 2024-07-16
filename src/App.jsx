@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Menu from './pages/Menu/Menu'
@@ -14,22 +14,29 @@ import { CartProvider } from './components/context/cartContext'
 import Profile from './components/profile/Profile'
 
 const App = () => {
-  console.log(window.location.pathname)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   const handleLogin = () => {
     setIsLoggedIn(true)
+  }
+
+  const location = useLocation()
+
+  const showNavbar = () => {
+    const noNavbarRoutes = ['/login', '/register', '/profile']
+    return !noNavbarRoutes.includes(location.pathname)
   }
 
   return (
     <CartProvider>
       <div className='app'>
-        <Navbar isLoggedIn={isLoggedIn} />
+        {showNavbar() && <Navbar isLoggedIn={isLoggedIn} />}
 
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login onLogin={handleLogin} />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/profile' element={<Profile/>} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
@@ -41,4 +48,5 @@ const App = () => {
     </CartProvider>
   )
 }
+
 export default App
