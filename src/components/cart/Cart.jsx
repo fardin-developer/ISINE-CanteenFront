@@ -58,8 +58,7 @@ const Cart = () => {
       const orderData = { items: items }
       console.log(orderData)
 
-      const token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnNkZmQiLCJ1c2VySWQiOiI2NjYzZjQ2NDA4Y2Y1NDVjNDQ5YWE2ZDQiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMDc4NTcxNCwiZXhwIjoxNzIwODcyMTE0fQ.TaiOprpCNTeQz2KCbByEoTlOyPuKkXdQ0uGGirO7iqY'
+      const token = JSON.parse(localStorage.getItem('cookies'));
 
       const config = {
         headers: {

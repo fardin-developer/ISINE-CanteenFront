@@ -17,10 +17,14 @@
   text-decoration: none;
   color:inherit;
  }
- .app{
+ /* App.css */
+.app {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+  }
   
-  margin: auto;
- }
 
  @keyframes fadeIn{
     0%{

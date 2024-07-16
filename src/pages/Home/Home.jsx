@@ -21,9 +21,7 @@ const Home = () => {
                 In the new era of technology we look in the future with
                 certainty and pride for our life.
               </p>
-              <a href='/menu' class='explore-menu'>
-                <Link to='/menu'> Explore Menu</Link>
-              </a>
+                <Link to='/menu'  className='explore-menu'> Explore Menu</Link>
             </div>
           </div>
           <div className='menu-box'>
@@ -34,7 +32,7 @@ const Home = () => {
                 In the new era of technology we look in the future with
                 certainty and pride for our life.
               </p>
-              <a href='#' class='explore-menu'>
+              <a href='#' className='explore-menu'>
                 Explore Menu
               </a>
             </div>
@@ -47,7 +45,7 @@ const Home = () => {
                 In the new era of technology we look in the future with
                 certainty and pride for our life.
               </p>
-              <a href='#' class='explore-menu'>
+              <a href='#' className='explore-menu'>
                 Explore Menu
               </a>
             </div>
@@ -60,7 +58,7 @@ const Home = () => {
                 In the new era of technology we look in the future with
                 certainty and pride for our life.
               </p>
-              <a href='#' class='explore-menu'>
+              <a href='#' className='explore-menu'>
                 Explore Menu
               </a>
             </div>
