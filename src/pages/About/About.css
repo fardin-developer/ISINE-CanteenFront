@@ -1,63 +1,59 @@
-.homepage-info {
-    display: flex;
-    padding: 2vw 2vw;
-   
-  }
-  
-  .info-img {
-    flex: 2;
-    padding-left: 8vw;
-    padding-right: 2vw; 
-  }
-  
-  .foodposter-img {
-    width: 100%;
-    
-    border-radius: 25px; 
-  }
-  
-  .info-part {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 20px; 
-  }
-  
-  .info-part h2 {
-    font-size: 4vw; 
-    font-weight: 500;
-    margin-bottom: 1.5vw;
-    line-height: 1.1;
-    
-  }
-  
-  .info-part h5 {
-    font-size: 1.25vw;
-    margin-bottom: 1vw; 
-  }
-  
-  .info-part p {
-    margin-bottom: 1.5vw; 
-  }
-  
- 
-  .aboutus-button {
-    font-size: max(1vw, 15px);
-    padding: 1vw 2vw;
-    font-weight: 400;
-   
-    color: black;
-    background-color: none;
-    border: 1px solid black; 
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.4s ease, color 0.4s ease;
-    display: inline-block; 
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #f9f9f9;
 }
 
-.aboutus-button:hover {
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid black;
+.about-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.about-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+
+.about-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-content h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+.about-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-content ul li {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.about-content a {
+  color: #007BFF;
+  text-decoration: none;
+  border-bottom: 1px solid #007BFF;
+}
+
+.about-content a:hover {
+  color: #0056b3;
+  border-bottom: 1px solid #0056b3;
 }

@@ -3,8 +3,8 @@ import ProductsCard from '../../components/MenuCard/Menucard';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // State to manage loading
-  const [error, setError] = useState(null); // State to manage errors
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchData = async () => {

@@ -176,7 +176,7 @@ const Navbar = ({ isLoggedIn }) => {
               Profile
             </Link>
           ) : (
-            <Link to='/Login' className='button'>
+            <Link to='/login' className='button'>
               Login
             </Link>
           )}

@@ -9,6 +9,13 @@ const Profile = () => {
   const handleBackClick = () => {
     navigate(-1)
   }
+  const handleSignout = ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('cookies')
+    localStorage.removeItem('total')
+    navigate('/');
+    window.location.reload();
+  }
 
   return (
     <>
@@ -76,7 +83,7 @@ const Profile = () => {
 
                 </div>
               </div>
-              <button className='sign-out'>Sign Out</button>
+              <button className='sign-out' onClick={handleSignout}>Sign Out</button>
             </div>
           </div>
         </div>

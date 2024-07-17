@@ -3,8 +3,10 @@ import './Home.css'
 import Header from '../../components/Header/Header'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <Header />
@@ -70,8 +72,8 @@ const Home = () => {
           <img src={assets.foodposter} alt='' className='foodposter-img' />
         </div>
         <div className='info-part'>
-          <h2>Your healthy choice is here.</h2>
-          <h5>
+          <h2 className='h2'>Your healthy choice is here.</h2>
+          <h5 className='h5'>
             Established in 2020, Isine Mess was born from a passion for bringing
             delicious and wholesome meals to the Isine community.We believe that
             good food is essential for a healthy and happy life, and that's why
@@ -82,7 +84,7 @@ const Home = () => {
             We're not just your average canteen. We're a team dedicated to
             providing a convenient and enjoyable dining experience.
           </p>
-          <button className='aboutus-button'> More About Us</button>
+          <button onClick={()=>{navigate('/about')}} className='aboutus-button'> More About Us</button>
         </div>
       </div>
     </div>

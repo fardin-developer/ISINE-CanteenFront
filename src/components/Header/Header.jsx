@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
   const navigate = useNavigate()
   const handleNavigate= ()=>{
-    navigate('/payment')
+    navigate('/menu')
   }
   return (
     <div className='header'>

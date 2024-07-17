@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Menu.css";
 import MenuApi from '../../components/MenuApi/MenuApi';
 import MenuCard from '../../components/MenuCard/Menucard';
@@ -9,23 +9,23 @@ import Cart from '../../components/cart/Cart';
 
 const uniqueList = [
     ...new Set(
-      MenuApi.map((curEle) => {
-        return curEle.category;
-    })
+        MenuApi.map((curEle) => {
+            return curEle.category;
+        })
     ),
     "All"
 ];
 
 const Restraunt = () => {
-    const[menuData, setMenuData] = useState(MenuApi);
-    const[menuList, setMenuList] = useState(uniqueList);
+    const [menuData, setMenuData] = useState(MenuApi);
+    const [menuList, setMenuList] = useState(uniqueList);
     useEffect(() => {
-    //  console.log(menuData);
+        //  console.log(menuData);
     }, [])
-    
+
     const filterItem = (category) => {
 
-        if(category==="All"){
+        if (category === "All") {
             setMenuData(MenuApi);
             return;
         }
@@ -38,18 +38,18 @@ const Restraunt = () => {
     };
     return (
         <>
-        <div className="menu-header">
+            <div className="menu-header">
                 <h1>Our Menu</h1>
                 <p>We know everyone has different cravings, so our menu offers a<br></br> variety of dishes to satisfy every taste bud.</p>
             </div>
             {/* <Menunav filterItem = {filterItem} menuList = {menuList}/>
            <MenuCard menuData = {menuData}/> */}
-           <Home/>
-           <Cart/>
-           
+            <Home />
+            <Cart />
+
         </>
-        
-  )
+
+    )
 }
 
 export default Restraunt
