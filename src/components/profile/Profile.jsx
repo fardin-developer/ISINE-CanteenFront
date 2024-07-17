@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import './Profile.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import Gravatar from 'react-gravatar'
+
 
 const Profile = () => {
   const navigate = useNavigate()
@@ -21,11 +23,8 @@ const Profile = () => {
           <div className='profilebottom'>
             <div className='profileData'>
               <div className='profImg'>
-                <img
-                  className='profile-image'
-                  src='/payment.jpg'
-                  alt='Profile'
-                />
+              <Gravatar className='profile-image' email="nrdsraz@gmail.com" size={150} />
+
               </div>
               <div className='profile-header'>
                 <h2 className='profile-name'>Arian Zesan</h2>

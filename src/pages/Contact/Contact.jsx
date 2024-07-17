@@ -1,28 +1,32 @@
-import React from "react";
-import "./Contact.css";
+import React from 'react';
+import Lottie from 'react-lottie';
+import animationData from '../../../public/lotti-animation.json'; // Update the path to your Lottie animation JSON file
+import './Contact.css';
 
 const Contact = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
   return (
-    <div className="info-part">
-      <h2>We're here to help!</h2>
-      <h5>
-        We're here to help with any questions or concerns you might have.
-        Contact us through any of the following ways:
-      </h5>
-      <p>
-        <b>Phone:</b> +91 1234567890<br />
-        <b>Email:</b> xyz@gmail.com<br />
-        <b>WhatsApp: </b>
-        <a href="https://wa.me/YourWhatsAppNumber" className="whatsapp-link">Send us a message on WhatsApp here</a>.<br />
-        <b>Address:</b><br />
-        [Your Restaurant Address]<br />
-        <b>Opening Hours:</b><br />
-        Monday - Friday: [Opening Hours]<br />
-        Saturday - Sunday: [Opening Hours]
-      </p>
-      <h5>
-        We look forward to hearing from you and assisting you with any inquiries!
-      </h5>
+    <div className='contaxtUspage'>
+      <div className="left">
+        <div className="contactBox">
+          <h2>Contact Us</h2>
+          <input type="text" name='name' placeholder="Your Name" />
+          <input type="email" name='email' placeholder="Your Email" />
+          <textarea name="message" placeholder="Your Message" cols="30" rows="10"></textarea>
+          <button>Send Message</button>
+        </div>
+      </div>
+      <div className="right">
+        <Lottie className='lottie' options={defaultOptions} />
+      </div>
     </div>
   );
 };

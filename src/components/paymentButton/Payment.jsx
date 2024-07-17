@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PaymentButton = () => {
+const PaymentButton = ({total}) => {
   const upiId = '9864972356@jupiteraxis'
   const amount = 100
   const payeeName = 'Fardin Mustaque'
@@ -61,7 +61,7 @@ const PaymentButton = () => {
   return (
     <div>
       <button style={btnCSS} onClick={handlePaymentClick}>
-        Pay ₹{amount} via UPI
+        Pay ₹{total} via UPI
       </button>
     </div>
   )

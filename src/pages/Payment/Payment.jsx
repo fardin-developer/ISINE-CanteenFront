@@ -3,10 +3,12 @@ import PaymentButton from '../../components/paymentButton/Payment'
 import './payment.css'
 
 const Payment = () => {
+  const total = localStorage.getItem('total')
+  console.log(total);
   return (
     <div className='payment'>
       <div className='paymentBox'>
-        <h1>Amount ₹100</h1>
+        <h1>Amount ₹ {total}</h1>
 
         <div className='paymentImg'>
           <img src='payment.jpg' alt='' draggable ="false"/>
@@ -15,7 +17,7 @@ const Payment = () => {
           <h2>Or</h2>
         </span>
         <div className='payBtn'>
-          <PaymentButton />
+          <PaymentButton total ={total}/>
         </div>
       </div>
     </div>

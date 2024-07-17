@@ -43,7 +43,9 @@ const App = () => {
           <Route path='/payment' element={<Payment />} />
           <Route path='/feedback' element={<Feedback />} />
         </Routes>
-        {/* <Footer /> */}
+    {
+      showNavbar()&&     <Footer />
+    }
       </div>
     </CartProvider>
   )

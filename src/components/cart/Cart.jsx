@@ -57,7 +57,7 @@ const Cart = () => {
         setVisible(false)
 
       const orderData = { items: items }
-      // console.log(orderData)
+      console.log(orderData)
 
       const token = JSON.parse(localStorage.getItem('cookies'));
 
@@ -73,6 +73,7 @@ const Cart = () => {
         config
       )
       console.log('Order response:', response.data);
+      localStorage.setItem('total',cartTotal)
       clearCart()
       navigate('/payment')
     } catch (error) {

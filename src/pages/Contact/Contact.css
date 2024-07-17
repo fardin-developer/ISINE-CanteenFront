@@ -1,42 +1,74 @@
-.info-part {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-   
+.contaxtUspage{
+  width: 100vw;
+  flex: 1;
+  display: flex;
+}
+
+.contaxtUspage .left{
+  width: 50vw;
+  display: flex;
+  height: auto;
+
+  h2{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 7px;
+    margin-top: -10px;
+
+  }
+
+  input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  textarea{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 10px;
     
-    text-align: center;
   }
-  
-  .info-part h2 {
-    font-size: 3vw; /* Responsive font size */
-    font-weight: 600;
-    margin-bottom: 20px; /* Increased spacing */
+  button{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-top: 10px;
+    background-color: #586A9A;
+    color: #fff;
+    
   }
-  
-  .info-part h5 {
-    font-size: 1.2vw; /* Responsive font size */
-    margin-bottom: 15px; /* Increased spacing */
+  button:hover{
+    background-color: #000000;
   }
+
+}
+
+.contactBox{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 65%;
+  justify-content: space-evenly;
+  background-color: rgb(235, 235, 235);
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contaxtUspage .right{
+  width: 50vw;
+  background-color: rgb(235, 235, 235);
+  height: auto;
+  border-radius:100% 0% 61% 39% / 0% 100% 0% 100% ;
+  box-shadow: 6px 5px 0px 5px;
+
+
   
-  .info-part p {
-    font-size: 1vw; /* Responsive font size */
-    margin-bottom: 20px; /* Increased spacing */
-  }
-  
-  .info-part p b {
-    font-weight: 600;
-  }
-  
-  .whatsapp-link {
-    color: blue; /* Blue color for the WhatsApp link */
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .whatsapp-link:hover {
-    color: #007bff; /* Darker blue on hover */
-  }
-  
+}
