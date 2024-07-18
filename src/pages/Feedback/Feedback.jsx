@@ -1,85 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Lottie from 'react-lottie';
+import animationData from '../../../public/lotti-animation.json'; // Update the path to your Lottie animation JSON file
 import './Feedback.css';
 
-const FeedbackForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Handle form submission logic (e.g., send data to a server)
+const Feedback = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
   };
 
   return (
-    <div className="feedback-form-container">
-     
-      <form onSubmit={handleSubmit} className="feedback-form">
-        <div className="form-group horizontal">
-          <div className="form-field">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter email address"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <div className='contaxtUspage'>
+      <div className="left">
+        <div className="contactBox">
+          <h2>Your Suggestion</h2>
+          <input type="text" name='name' placeholder="Your Name" />
+          <input type="text" name='subject' placeholder="Your Subject" />
+          <input type="email" name='email' placeholder="Your Email" />
+          <textarea name="message" placeholder="Your Suggestion" cols="30" rows="10"></textarea>
+          <button>Send Message</button>
         </div>
-        <div className="form-group-1">
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            id="subject"
-             placeholder="Write a subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group-2">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            placeholder="Write your message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="send-button">Send</button>
-      </form>
+      </div>
+      <div className="right">
+        <img src="/giphy.webp" onClick={() => {
+          alert(" In the infinite void, we seek others to understand ourselves. ~Fardin Mustaque")
+        }} alt="" srcset="" />
+      </div>
     </div>
   );
 };
 
-export default FeedbackForm;
+export default Feedback;

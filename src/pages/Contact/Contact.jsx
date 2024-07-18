@@ -1,8 +1,8 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../../public/lotti-animation.json'; // Update the path to your Lottie animation JSON file
+import animationData from '../../../public/lotti-animation.json'; 
 import './Contact.css';
-
+import FloatingWhatsAppButton from '../../components/FloatingButton/FloatingButton';
 const Contact = () => {
   const defaultOptions = {
     loop: true,
@@ -27,6 +27,8 @@ const Contact = () => {
       <div className="right">
         <Lottie className='lottie' options={defaultOptions} />
       </div>
+      <FloatingWhatsAppButton/>
+
     </div>
   );
 };

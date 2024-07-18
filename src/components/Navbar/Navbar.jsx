@@ -120,7 +120,7 @@ const Navbar = ({ isLoggedIn }) => {
       <div ref={navbarRef} className='navbar'>
         <div className='left'>
           <div className='nav-icon' onClick={handleClick}>
-            {click ? <RiCloseLine size='25' /> : <RiAlignJustify size='25' />}
+            {click ? <RiCloseLine size='35' /> : <RiAlignJustify size='27' />}
           </div>
           <Link to='/' onClick={handleLogoClick}>
             <img src={logo} alt='Logo' className='logo' />

@@ -3,8 +3,7 @@ import cartContext from '../context/cartContext'
 
 const ProductsCard = props => {
   const { image, id, category, price, name, description } = props.product
-  // let cartItems = 
-  // console.log(props.product)
+
 
   const { addItem } = useContext(cartContext)
 
@@ -24,7 +23,7 @@ const ProductsCard = props => {
 
   return (
     <>
-      <section className='main-card--container' >
+      <section className='' >
         
         <div className='card-container' key={id}>
           <div className='card'>

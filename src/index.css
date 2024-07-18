@@ -14,9 +14,12 @@
     margin: 0;
     padding: 0;
  }
- body{
-  min-height: 100vh;
- }
+ body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  
+  }
+  
  a{
   text-decoration: none;
   color:inherit;

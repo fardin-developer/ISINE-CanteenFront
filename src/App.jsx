@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <CartProvider>
-      <div className='app'>
+      <div className='app' style={{marginTop:'80px'}}>
         {showNavbar() && <Navbar isLoggedIn={isLoggedIn} />}
 
         <Routes>

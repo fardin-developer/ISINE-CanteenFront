@@ -28,16 +28,14 @@
   .main-card--container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     gap: 20px;
     padding: 20px;
   }
   
   /* Each card container */
   .card-container {
-    flex: 1 1 300px;
-    max-width: 300px;
-    perspective: 1000px;
+    width: 300px;
     margin: 10px;
   }
   

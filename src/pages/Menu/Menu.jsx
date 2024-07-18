@@ -18,7 +18,6 @@ const uniqueList = [
 
 const Restraunt = () => {
     const [menuData, setMenuData] = useState(MenuApi);
-    const [menuList, setMenuList] = useState(uniqueList);
     useEffect(() => {
         //  console.log(menuData);
     }, [])
