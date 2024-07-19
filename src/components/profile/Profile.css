@@ -27,7 +27,7 @@
   flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 90px;
   justify-content: center;
   flex-direction: column;
   justify-content: space-around;
@@ -100,12 +100,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 20px 25px;
   border: 1px solid #b3b3b3;
-  border-radius: 15px;
+  border-radius: 35px;
   cursor: pointer;
   background-color: rgb(231, 231, 231);
   cursor: pointer;
+  font-size: 18px;
 }
 .rightarrow {
   width: 15px;
@@ -122,12 +123,14 @@
 .sign-out {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 20px 25px;
   background-color: #f00;
   color: #fff;
   border: none;
-  border-radius: 15px;
+  border-radius: 35px;
   cursor: pointer;
+  font-size: 18px;
+  
 }
 
 @media (min-width: 768px) {
@@ -165,7 +168,9 @@
   .sign-out {
     width: 50%;
     margin-top: 20px;
+    
   }
+  
 
   .profile-option {
     flex: 1 1 calc(50% - 20px);

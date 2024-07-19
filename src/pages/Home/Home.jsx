@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
   return (
-    <div>
+    <div style={{backgroundColor:'white'}}>
       <Header />
-      <div className='browse-menu'>
+      <div className='browse-menu firstHome'>
         <div className='browsemenu-heading'>
           <h1>Browse Our Menu</h1>
         </div>
         <div className='menu-container'>
-          <div className='menu-box'>
+          <div className='menu-box' >
             <img src={assets.breakfastlogo} alt='' className='menu-image' />
             <div className='menu-details'>
               <h3>Breakfast</h3>
@@ -26,7 +26,7 @@ const Home = () => {
                 <Link to='/menu'  className='explore-menu'> Explore Menu</Link>
             </div>
           </div>
-          <div className='menu-box'>
+          <div className='menu-box' >
             <img src={assets.drinkslogo} alt='' className='menu-image' />
             <div className='menu-details'>
               <h3>Beverages</h3>

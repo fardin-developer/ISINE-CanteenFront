@@ -40,6 +40,9 @@
 
   .dropdown-container {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .custom-dropdown {
@@ -78,17 +81,16 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background: orange;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease;
     padding-right: 15px;
+    width: 95px;
   }
   
   .dropdown-trigger:hover {
     background-color: #0056b3;
   }
-  
   

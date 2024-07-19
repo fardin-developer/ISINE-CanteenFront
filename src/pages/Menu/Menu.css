@@ -34,8 +34,10 @@
   
   /* Each card container */
   .card-container {
+    margin-top: 35px;
     width: 300px;
     margin: 10px;
+    margin-bottom: 35px;
   }
   
   /* Card styling */

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductsCard from '../../components/MenuCard/Menucard';
 import Lottie from 'react-lottie';
-import animationData from '../../../public/filter.json';
+import filter from '../../../public/filter.json';
 import './home.css';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animationData,
+    animationData: filter,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -62,7 +62,7 @@ const Home = () => {
 
   const handleFilterChange = (value) => {
     setFilterCategory(value);
-    setDropdownVisible(false); // Hide dropdown after selecting a filter
+    setDropdownVisible(false);
   };
 
   const toggleDropdown = () => {
@@ -88,8 +88,7 @@ const Home = () => {
             />
             <div className="dropdown-container">
               <div className="dropdown-trigger" onClick={toggleDropdown}>
-                <Lottie className='lottie' options={defaultOptions}   style={{ width: '35px', height: 'auto' }} 
-                />
+                <Lottie  options={defaultOptions} />
                 <span>{filterCategory || 'filter'}</span>
               </div>
               {dropdownVisible && (

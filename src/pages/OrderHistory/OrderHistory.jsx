@@ -1,79 +1,63 @@
-import React from 'react'
-import './OrderHistory.css'
+import React, { useEffect, useState } from 'react';
+import './OrderHistory.css';
 
 const OrderHistory = () => {
-  const orders = [
-    {
-      id: 1,
-      name: 'Chicken Tikka Biryani',
-      price: 360,
-      date: '29/02/2024',
-      description:
-        'Afghani Chicken Tikka Biryani Boneless for 1 Cheeral Eats | Malad West',
-      imageUrl: 'https://picsum.photos/200'
-    },
-    {
-      id: 2,
-      name: 'Chicken Pulao',
-      price: 410,
-      date: '16/02/2024',
-      description:
-        'Afghani Chicken Tikka Biryani Boneless for 1 Cheeral Eats | Malad West',
-      imageUrl: 'path/to/image2.jpg'
-    },
-    {
-      id: 3,
-      name: 'Shahi Murgh Biryani',
-      price: 350,
-      date: '02/02/2024',
-      description:
-        'Afghani Chicken Tikka Biryani Boneless for 1 Cheeral Eats | Malad West',
-      imageUrl: 'path/to/image3.jpg'
-    },
-    {
-      id: 4,
-      name: 'Pot Egg Biryani',
-      price: 380,
-      date: '25/01/2024',
-      description:
-        'Afghani Chicken Tikka Biryani Boneless for 1 Cheeral Eats | Malad West',
-      imageUrl: 'path/to/image4.jpg'
-    },
-    {
-      id: 5,
-      name: 'Prawn Biryani',
-      price: 430,
-      date: '20/01/2024',
-      description:
-        'Afghani Chicken Tikka Biryani Boneless for 1 Cheeral Eats | Malad West',
-      imageUrl: 'path/to/image5.jpg'
-    }
-  ]
+  const [orders, setOrders] = useState([]);
+  const handleBackClick = () => {
+    window.location.href = '/profile';
+  }
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem('cookies'));
+        const response = await fetch('http://localhost:8000/api/v1/orders/showAllMyOrders', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        setOrders(data.orders);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
 
   return (
     <div className='order-history-container'>
-      <h2>Order History</h2>
+      <div className='profileNav'>
+            <div className='profileNavLeft' id='orderNav' onClick={handleBackClick}>
+              <img src='arrow.png' alt='' srcSet='' width='20px' />
+            </div>
+            <div className='profileNavRight'></div>
+          </div>
+          <h2>Order History</h2>
 
       <div className='orderMain'>
-       
-        <div className='orderItem'>
-          <div className='orderLeft'>
-            <img src='isineLogo.png' alt='' srcset='' />
-          </div>
-          <div className='orderRight'>
-            <h3>Shahi Murgh Biryani</h3>
-            <p>Afgani Chicken biriyani boneless</p>
-            <p className='category'>Launch</p>
-            <div className='bottomOrder'>
-              <h3 className='price'>$400</h3>
-              <button className='reorder-button'>24/032002</button>
-            </div>{' '}
-          </div>
-        </div>
-       
+        {orders.map(order => (
+          order.orderItems.map(item => (
+            <div className='orderItem' key={item._id}>
+              <div className='orderLeft'>
+                <img src={item.image} alt={item.name} />
+              </div>
+              <div className='orderRight'>
+                <h3>{item.name}</h3>
+                <p>{item.description || 'No description available'}</p>
+                <p className='category'>Category</p>
+                <div className='bottomOrder'>
+                  <h3 className='price'>₹{item.price}</h3>
+                  <button className='reorder-button'>{new Date(order.createdAt).toLocaleDateString()}</button>
+                </div>
+              </div>
+            </div>
+          ))
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderHistory
+export default OrderHistory;

@@ -1,3 +1,8 @@
+.firstHome{
+  background-color: #FE5007;
+
+}
+
 .browse-menu {
   padding: 0vw 4vw;
   display: flex;
@@ -5,12 +10,19 @@
 
   align-items: center;
   margin-bottom: 8vw;
+  padding-bottom: 80px;
+  /* box-shadow:15px 5px 5px 5px #FE5007; */
+
 }
 
 .browsemenu-heading {
-  font-size: max(3.5vw, 18px);
+  font-size: max(3.5vw, 28px);
   text-align: center;
   padding: 3vw 2vw;
+  color: rgb(255, 255, 255);
+  h1{
+    font-weight: 600;
+  }
 }
 
 .menu-container {
@@ -57,7 +69,7 @@
 
 .explore-menu {
   font-size: max(1vw, 13px);
-  color: #c54c56;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
@@ -69,6 +81,7 @@
 .homepage-info {
   display: flex;
   padding: 2vw 2vw;
+  margin-top: -50px;
 }
 
 .info-img {
@@ -109,11 +122,12 @@
 
 .aboutus-button {
   font-size: max(1vw, 15px);
-  padding: 1vw 2vw;
+  padding: 1.3vw 2vw;
   font-weight: 400;
+  font-size: larger;
 
-  color: black;
-  background-color: none;
+  color: rgb(255, 255, 255);
+  background-color: black;
   border: 1px solid black;
   border-radius: 25px;
   cursor: pointer;
@@ -146,7 +160,7 @@
     align-items: center;
     text-align: center;
     margin-top: 20px;
-    text-align: justify;
+    text-align: center;
 
     img {
       width: 70px;
@@ -164,8 +178,11 @@
     display: flex;
     flex-direction: column;
   }
+  .info-img{
+    margin-top: 60px;
+  }
   .info-part {
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 0;
    
   }
@@ -193,8 +210,12 @@
   }
 .aboutus-button{
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   width: 90%;
+  padding: 15px 15px;
+}
+.browse-menu {
+   padding-bottom: 35px;
 }
 }

@@ -28,7 +28,7 @@ const Feedback = () => {
       <div className="right">
         <img src="/giphy.webp" onClick={() => {
           alert(" In the infinite void, we seek others to understand ourselves. ~Fardin Mustaque")
-        }} alt="" srcset="" />
+        }} alt="" />
       </div>
     </div>
   );

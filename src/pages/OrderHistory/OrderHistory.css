@@ -1,5 +1,5 @@
 .order-history-container {
-  padding: 10px;
+  /* padding: 10px; */
   margin: 0 auto;
   font-family: 'Arial, sans-serif';
   width: 100%;
@@ -9,7 +9,7 @@
 
 .order-history-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 2rem;
 }
 
@@ -47,7 +47,8 @@
 }
 
 .orderItem {
-  width: 100%;
+  width: 95%;
+  margin: auto;
   display: flex;
   margin-top: 20px;
   border-radius: 15px;
@@ -55,6 +56,7 @@
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 .orderItem .orderLeft {
   display: flex;
@@ -63,10 +65,11 @@
   width: 20%;
 }
 .orderItem .orderLeft img {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 50px;
   margin: auto;
+  object-fit: cover;
 }
 .orderRight {
   padding: 0 10px;
@@ -94,7 +97,7 @@
   .orderItem {
     margin: auto;
     width: 80%;
-    padding: 40px 20px;
+    padding: 15px 20px;
     margin-top: 30px;
   }
 }

@@ -24,13 +24,13 @@ const App = () => {
   const location = useLocation()
 
   const showNavbar = () => {
-    const noNavbarRoutes = ['/login', '/register', '/profile','/order']
+    const noNavbarRoutes = ['/login', '/register', '/profile','/order-history']
     return !noNavbarRoutes.includes(location.pathname)
   }
 
   return (
     <CartProvider>
-      <div className='app' style={{ marginTop: showNavbar() ? '80px' : '0px' }}>
+      <div className='app' style={{ marginTop: showNavbar() ? '100px' : '0px' }}>
         {showNavbar() && <Navbar isLoggedIn={isLoggedIn} />}
 
         <Routes>
@@ -43,7 +43,7 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/feedback' element={<Feedback />} />
-          <Route path='/order' element={<OrderHistory />} />
+          <Route path='/order-history' element={<OrderHistory />} />
         </Routes>
     {
       showNavbar()&&     <Footer />

@@ -7,7 +7,7 @@ import Gravatar from 'react-gravatar'
 const Profile = () => {
   const navigate = useNavigate()
   const handleBackClick = () => {
-    navigate(-1)
+    navigate('/')
   }
   const handleSignout = ()=>{
     localStorage.removeItem('token');
@@ -23,7 +23,7 @@ const Profile = () => {
         <div className='profile-container'>
           <div className='profileNav'>
             <div className='profileNavLeft' onClick={handleBackClick}>
-              <img src='arrow.png' alt='' srcset='' width='20px' />
+              <img src='arrow.png' alt='' srcSet='' width='20px' />
             </div>
             <div className='profileNavRight'></div>
           </div>
@@ -66,7 +66,7 @@ const Profile = () => {
                   <span> <img className='rightarrow' src="/right-arrow.png" alt="" /> </span>
 
                 </div>
-                <div className='profile-option'>
+                <div className='profile-option' onClick={()=>{navigate('/order-history')}}>
                   <div className='profile-optionLeft'>
                     <span className='icon'>🛒</span>
                     <p>Order History</p>
@@ -83,7 +83,7 @@ const Profile = () => {
 
                 </div>
               </div>
-              <button className='sign-out' onClick={handleSignout}>Sign Out</button>
+              <button className='sign-out' onClick={handleSignout}><span className='sign-out-span'>Sign Out</span></button>
             </div>
           </div>
         </div>

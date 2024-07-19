@@ -6,16 +6,16 @@ const Footer = () => {
     <div className='footer'>
       <div id="footer">
 
-        <footer class="footer">
-          <div class="container">
-            <div class="col1">
+        <footer className="footer">
+          <div className="container">
+            <div className="col1">
               <img src="/isineLogo.png" width='30px' alt="" />
               <h2>Contact Us</h2>
               <p>9864972356</p>
               
             </div>
-            <div class="col2">
-              <ul class="menu">
+            <div className="col2">
+              <ul className="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Menu</a></li>
                 <li><a href="#">About</a></li>
@@ -23,18 +23,18 @@ const Footer = () => {
                 <li><a href="#">Feedback</a></li>
               </ul>
             </div>
-            <div class="col3">
+            <div className="col3">
               <div className="subCol3">
               <h2>Social Links</h2>
-              <ul class="services-icons">
+              <ul className="services-icons">
                 <li>
-                  <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                  <a href="#"><i className="ri-facebook-circle-fill"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="ri-instagram-fill"></i></a>
+                  <a href="#"><i className="ri-instagram-fill"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="ri-mail-fill"></i></a>
+                  <a href="#"><i className="ri-mail-fill"></i></a>
                 </li>
 
               </ul>
@@ -43,8 +43,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div class="footer-bottom">
-            <div class="mekk">
+          <div className="footer-bottom">
+            <div className="mekk">
               <p>&copy; isinemess 2024 - All Rights Reserved</p>
             </div>
           </div>

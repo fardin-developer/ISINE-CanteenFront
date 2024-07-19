@@ -99,7 +99,6 @@ const Login = ({onLogin}) => {
         </form>
       </div>
       <div className="bottom">
-        <h2>ISINE</h2>
       </div>
     </div>
   );
