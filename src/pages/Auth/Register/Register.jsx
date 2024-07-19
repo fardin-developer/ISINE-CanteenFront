@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
-  const [isRegister, setIsRegister] = useState(true);
   const [registerFormData, setRegisterFormData] = useState({
     name: '',
     email: '',
@@ -13,10 +12,7 @@ const Register = () => {
     idProof: null
   });
 
-  const [loginFormData, setLoginFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const navigate = useNavigate();
 
   const handleRegisterChange = e => {
     const { name, value, files } = e.target;
@@ -26,33 +22,15 @@ const Register = () => {
     });
   };
 
-  const handleLoginChange = e => {
-    const { name, value } = e.target;
-    setLoginFormData({
-      ...loginFormData,
-      [name]: value
-    });
-  };
-
   const handleRegisterSubmit = e => {
     e.preventDefault();
-    // Handle register form submission
     console.log(registerFormData);
-  };
-
-  const handleLoginSubmit = e => {
-    e.preventDefault();
-    // Handle login form submission
-    console.log(loginFormData);
-  };
-
-  const toggleForm = () => {
-    setIsRegister(!isRegister);
+    navigate('/login'); 
   };
 
   return (
     <div className='auth-container'>
-      <div className={`auth-form ${isRegister ? 'slide-in-right' : 'slide-in-left'}`}>
+      <div className='auth-form slide-in-right'>
         <form className='register-form' onSubmit={handleRegisterSubmit}>
           <h2>Register</h2>
           <div className='form-group'>
@@ -115,8 +93,8 @@ const Register = () => {
             />
           </div>
           <button type='submit'>Register</button>
-          <p  className='toggle-link'>
-            Already have an account? <Link to='/login' onClick={toggleForm}>Login</Link>
+          <p className='toggle-link'>
+            Already have an account? <Link to='/login' id='loginlink'>Login</Link>
           </p>
         </form>
       </div>

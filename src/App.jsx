@@ -12,6 +12,7 @@ import Login from './pages/Auth/Login/Login'
 import Register from './pages/Auth/Register/Register'
 import { CartProvider } from './components/context/cartContext'
 import Profile from './components/profile/Profile'
+import OrderHistory from './pages/OrderHistory/OrderHistory'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -23,13 +24,13 @@ const App = () => {
   const location = useLocation()
 
   const showNavbar = () => {
-    const noNavbarRoutes = ['/login', '/register', '/profile']
+    const noNavbarRoutes = ['/login', '/register', '/profile','/order']
     return !noNavbarRoutes.includes(location.pathname)
   }
 
   return (
     <CartProvider>
-      <div className='app' style={{marginTop:'80px'}}>
+      <div className='app' style={{ marginTop: showNavbar() ? '80px' : '0px' }}>
         {showNavbar() && <Navbar isLoggedIn={isLoggedIn} />}
 
         <Routes>
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/feedback' element={<Feedback />} />
+          <Route path='/order' element={<OrderHistory />} />
         </Routes>
     {
       showNavbar()&&     <Footer />

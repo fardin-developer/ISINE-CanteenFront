@@ -94,6 +94,7 @@ const Home = () => {
               </div>
               {dropdownVisible && (
                 <div ref={dropdownRef} className="custom-dropdown">
+                  <div onClick={() => handleFilterChange('')}>All</div>
                   <div onClick={() => handleFilterChange('breakfast')}>Breakfast</div>
                   <div onClick={() => handleFilterChange('lunch')}>Lunch</div>
                   {/* Add more categories as needed */}

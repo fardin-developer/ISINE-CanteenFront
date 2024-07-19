@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FE5007; /* Ensure it has a background color */
+    background-color: #FE5007;
     z-index: 1000; /* Ensure it stays on top of other elements */
     color: rgb(255, 255, 255);
     font-size: large;
