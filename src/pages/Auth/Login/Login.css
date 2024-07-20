@@ -130,3 +130,9 @@ justify-content: center;
 align-items: center;
 font-size: large;
 }
+
+.error-message{
+  color: rgb(237, 200, 78);
+  font-weight: 300;
+  font-size: 16px;
+}

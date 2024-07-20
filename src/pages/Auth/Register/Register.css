@@ -80,7 +80,7 @@
   color: white;
 }
 
-button[type="submit"] {
+.register-form button[type="submit"] {
   width: 100%;
   padding: 10px;
   border: none;
@@ -88,14 +88,15 @@ button[type="submit"] {
   font-size: 1.2em;
   color: #fff;
   background: #6a11cb;
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  background: linear-gradient(45deg, #FE5007, #2575fc);
   cursor: pointer;
+  margin-top: 15px;
   transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover {
   background: #2575fc;
-  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  background: linear-gradient(45deg, #FE5007, #FE5007);
 }
 
 .toggle-link {

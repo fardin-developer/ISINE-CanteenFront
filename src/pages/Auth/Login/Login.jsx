@@ -58,7 +58,7 @@ const Login = ({onLogin}) => {
       .catch((error) => {
         setLoading(false);
         setError('An error occurred. Please try again.');
-        console.error('Error:', error);
+        // console.error('Error:', error);
       });
   };
 

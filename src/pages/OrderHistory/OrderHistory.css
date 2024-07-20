@@ -29,6 +29,23 @@
   color: gray;
   border: 1px solid gray;
 }
+.filter-container{
+  /* background-color: pink; */
+  height: 40px;
+  position: relative; 
+  width: 95%;
+  margin: auto;
+  /* padding: 40px; */
+ 
+}
+.filter-select{
+  /* background-color: yellow; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-size:15px;
+}
 
 @media (max-width: 768px) {
   .order-item {
@@ -44,6 +61,12 @@
     align-self: stretch;
     text-align: center;
   }
+ 
+}
+.orderItem .namenPrice{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
 }
 
 .orderItem {
@@ -100,4 +123,11 @@
     padding: 15px 20px;
     margin-top: 30px;
   }
+  .filter-container{
+    margin: auto;
+    width: 80%;
+    padding: 15px 20px;
+    margin-top: 30px;
+  }
+
 }

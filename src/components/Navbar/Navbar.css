@@ -12,9 +12,9 @@
     z-index: 1000; /* Ensure it stays on top of other elements */
     color: rgb(59, 59, 59);
     font-size: large;
-    /* backdrop-filter: blur(10px); */
+    backdrop-filter: blur(10px);
     /* filter: blur(4px); */
-    background-color: white;
+    /* background-color: #FE5007; */
 }
 
 

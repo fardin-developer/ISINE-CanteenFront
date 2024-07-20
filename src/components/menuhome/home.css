@@ -81,13 +81,14 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    color: #fff;
+    color: #000000;
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease;
     padding-right: 15px;
     width: 95px;
+    background-color: #ea8053;
   }
   
   .dropdown-trigger:hover {
