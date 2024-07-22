@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { BASE_URL } from '../../../api/baseUrl';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Lottie from 'react-lottie';
+import animationData from '/public/Cancel.json'
 
-const Login = ({onLogin}) => {
+const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [notVerified, setNotVerified] = useState(false);
   const navigate = useNavigate();
+
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,9 +59,12 @@ const Login = ({onLogin}) => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        if (data && data.cookies) {
+        if (data.status === 'not verified') {
+          setNotVerified(true);
+        } else if (data && data.cookies) {
           localStorage.setItem('cookies', JSON.stringify(data.cookies));
-          onLogin(data.cookies); // Pass user data to App component
+          localStorage.setItem('user', JSON.stringify(data.user));
+          onLogin(data.cookies);
           console.log(data.cookies);
           navigate('/');
         } else {
@@ -58,48 +74,59 @@ const Login = ({onLogin}) => {
       .catch((error) => {
         setLoading(false);
         setError('An error occurred. Please try again.');
-        // console.error('Error:', error);
       });
   };
 
   return (
-    <div className='loginPage'>
-      <div className="login-container">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <h2>Login</h2>
-          {error && <div className="error-message">{error}</div>}
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+    <div className="loginPage">
+      {!notVerified ? (
+        <>
+          <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+              <h2>Login</h2>
+              {error && <div className="error-message">{error}</div>}
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit" disabled={loading}>
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
+              <div className="register-option">
+                <p className="toggle-link">
+                  Don't have an account? <Link to="/register">Register</Link>
+                </p>
+              </div>
+            </form>
+          </div>
+        </>
+      ) : (
+        <div className="verification-message" style={{color:'white'}}>
+          <h1>Your acoount has not verified by administration</h1>
+          <Lottie options={defaultOptions}
+            height={300}
+            width={300}
             />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
-          </button>
-          <div className="register-option">
-            <p className='toggle-link'>
-            Don't have an account? <Link to='/register'>Register</Link>
-          </p>
-          </div>
-        </form>
-      </div>
-      <div className="bottom">
-      </div>
+
+        </div>
+      )}
+      <div className="bottom"></div>
     </div>
   );
 };

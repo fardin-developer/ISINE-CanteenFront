@@ -1,11 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Profile.css'
 import { useNavigate } from 'react-router-dom';
 import Gravatar from 'react-gravatar'
 
 
 const Profile = () => {
-  const navigate = useNavigate()
+  const [user, setUser] = useState({
+   
+  });
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(user); // This will log the updated user state
+  }, [user]);
+
   const handleBackClick = () => {
     navigate('/')
   }
@@ -29,18 +45,18 @@ const Profile = () => {
           </div>
           <div className='profilebottom'>
             <div className='profileData'>
-              <div className='profImg'>
-              <Gravatar className='profile-image' email="nrdsraz@gmail.com" size={150} />
+              <div className='profImg' onClick={()=>{alert('to view your avatar, link your email with gravatar.com')}}>
+              <Gravatar className='profile-image' email={user.email||'test@email.com'} size={150} />
 
               </div>
               <div className='profile-header'>
-                <h2 className='profile-name'>Arian Zesan</h2>
-                <p className='profile-activity'>View activity</p>
+                <h2 className='profile-name'>{user.name}</h2>
+                <p className='profile-activity'>{user.email}</p>
               </div>
-              <div className='profileReport'>
+              {/* <div className='profileReport'>
                 <div className='profileReportLeft'>100</div>
                 <div className='profileReportRight'>100</div>
-              </div>
+              </div> */}
             </div>
             <div className='profmenu'>
               <div className='profile-options'>

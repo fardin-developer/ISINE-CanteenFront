@@ -72,10 +72,11 @@ footer {
   }
   .footer .menu {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     /* background-color: pink; */
     /* justify-content: center;
     align-items: center; */
+    gap: 20px;
   }
   .footer .menu li {
     display: inline-block;
@@ -173,6 +174,8 @@ footer {
     font-size: larger;
   }
 
-
-
-
+@media screen and (max-width:1028px) {
+  .menu{
+    flex-direction: column;
+  }
+}

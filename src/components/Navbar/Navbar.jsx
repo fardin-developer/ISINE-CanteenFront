@@ -43,7 +43,7 @@ const Navbar = ({ isLoggedIn }) => {
         .then(res => res.json())
         .then(data => {
           if (data.user) {
-            localStorage.setItem('user', JSON.stringify(data.user))
+            // localStorage.setItem('user', JSON.stringify(data.user))
           } else {
             localStorage.removeItem('cookies')
             localStorage.removeItem('user')

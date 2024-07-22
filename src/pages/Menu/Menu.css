@@ -27,7 +27,7 @@
   .main-card--container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
   }
@@ -35,7 +35,7 @@
   /* Each card container */
   .card-container {
     margin-top: 35px;
-    width: 300px;
+    width: 250px;
     margin: 10px;
     margin-bottom: 35px;
   }

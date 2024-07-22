@@ -93,6 +93,19 @@
   margin-top: 15px;
   transition: all 0.3s ease;
 }
+/* #regBtn{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  color: #fff;
+  background: #6a11cb;
+  background: linear-gradient(45deg, #FE5007, #2575fc);
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+} */
 
 button[type="submit"]:hover {
   background: #2575fc;
@@ -129,4 +142,11 @@ button[type="submit"]:hover {
   .auth-form{
     width: 90%;
   }
+}
+/* Register.css */
+.loading-spinner {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #007bff;
+  font-weight: bold;
 }

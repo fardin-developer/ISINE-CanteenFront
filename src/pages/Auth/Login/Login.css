@@ -136,3 +136,11 @@ font-size: large;
   font-weight: 300;
   font-size: 16px;
 }
+.verification-message{
+  /* background-color: #2575fc; */
+  text-align: center;
+  font-size: x-large;
+  h1{
+    color: #afabab;
+  }
+}
