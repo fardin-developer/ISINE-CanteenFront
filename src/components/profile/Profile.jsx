@@ -4,23 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import Gravatar from 'react-gravatar'
 
 
-const Profile = () => {
-  const [user, setUser] = useState({
+const Profile = ({user}) => {
+  const [user1, setUser] = useState({
    
   });
+  useEffect(() => {
+    if (user && user.name) {
+    } else {
+        const getUser = JSON.parse(localStorage.getItem('user'));
+        setUser(getUser)
+    }
+}, [user]);
   
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
 
-  useEffect(() => {
-    console.log(user); // This will log the updated user state
-  }, [user]);
 
   const handleBackClick = () => {
     navigate('/')
@@ -46,12 +44,12 @@ const Profile = () => {
           <div className='profilebottom'>
             <div className='profileData'>
               <div className='profImg' onClick={()=>{alert('to view your avatar, link your email with gravatar.com')}}>
-              <Gravatar className='profile-image' email={user.email||'test@email.com'} size={150} />
+              <Gravatar className='profile-image' email={user?.email||user1.email} size={150} />
 
               </div>
               <div className='profile-header'>
-                <h2 className='profile-name'>{user.name}</h2>
-                <p className='profile-activity'>{user.email}</p>
+              <h2 className='profile-name'>{user?.name || user1?.name}</h2>
+              <p className='profile-activity'>{user?.email|| user1.email}</p>
               </div>
               {/* <div className='profileReport'>
                 <div className='profileReportLeft'>100</div>
@@ -60,7 +58,7 @@ const Profile = () => {
             </div>
             <div className='profmenu'>
               <div className='profile-options'>
-                <div className='profile-option'>
+                <div className='profile-option' onClick={()=>{navigate('/transaction-history')}}>
                   <div className='profile-optionLeft'>
                     <span className='icon'>💰</span>
                     <p>Payments</p>
@@ -74,8 +72,8 @@ const Profile = () => {
                     />{' '}
                   </span>
                 </div>
-                <div className='profile-option'>
-                  <div className='profile-optionLeft'>
+                <div className='profile-option' onClick={()=>{navigate('/profile-settings')}}>
+                  <div className='profile-optionLeft' >
                     <span className='icon'>⚙️</span>
                     <p>Profile Settings</p>
                   </div>
@@ -90,7 +88,7 @@ const Profile = () => {
                   <span> <img className='rightarrow' src="/right-arrow.png" alt="" /> </span>
 
                 </div>
-                <div className='profile-option'>
+                <div className='profile-option' onClick={()=>{navigate('/booking')}}>
                 <div className='profile-optionLeft'>
                   <span className='icon'>📅</span>
                   <p>Booking</p>

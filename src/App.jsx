@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home/Home'
@@ -13,9 +13,13 @@ import Register from './pages/Auth/Register/Register'
 import { CartProvider } from './components/context/cartContext'
 import Profile from './components/profile/Profile'
 import OrderHistory from './pages/OrderHistory/OrderHistory'
+import TransactionHistory from './pages/TransactionHistory/TransactionHistory'
+import ProfileSettings from './pages/ProfileSettings/ProfileSettings'
+import Booking from './pages/Booking/Booking'
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   const handleLogin = () => {
     setIsLoggedIn(true)
@@ -24,9 +28,16 @@ const App = () => {
   const location = useLocation()
 
   const showNavbar = () => {
-    const noNavbarRoutes = ['/login', '/register', '/profile','/order-history']
+    const noNavbarRoutes = ['/login', '/register', '/profile', '/order-history', '/transaction-history', '/profile-settings','/booking']
     return !noNavbarRoutes.includes(location.pathname)
   }
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
 
   return (
     <CartProvider>
@@ -37,17 +48,20 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login onLogin={handleLogin} />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile' element={<Profile user ={user}/>} />
+          <Route path='/profile-settings' element={<ProfileSettings  user ={user}/>} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/feedback' element={<Feedback />} />
           <Route path='/order-history' element={<OrderHistory />} />
+          <Route path='/booking' element={<Booking/>} />
+          <Route path='/transaction-history' element={<TransactionHistory />} />
         </Routes>
-    {
-      showNavbar()&&     <Footer />
-    }
+        {
+          showNavbar() && <Footer />
+        }
       </div>
     </CartProvider>
   )

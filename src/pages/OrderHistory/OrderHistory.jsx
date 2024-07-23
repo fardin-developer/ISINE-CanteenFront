@@ -131,8 +131,9 @@ const OrderHistory = () => {
                   <h3>{item.name}</h3>
                   <h3><span>₹</span>{item.price}</h3>
                 </div>
-                <p>{item.description || 'No description available'}</p>
-                <p className='category'>Category</p>
+                <p className='category'>{item._id || 'not available'}</p>
+                <p className='category'>Quantity: {item.amount || 'not available'}</p>
+                {/* <p className=''>{item.category||'no'}</p> */}
                 <div className='bottomOrder'>
                   <p className='price'>{new Date(order.createdAt).toLocaleDateString()}</p>
                   <button className='reorder-button'>{order.status}</button>
@@ -141,6 +142,13 @@ const OrderHistory = () => {
             </div>
           ))
         )}
+        {
+          orders.length === 0 && (
+            <div className='noOrders'>
+              <h2>You have not order yet</h2>
+              </div>
+          )
+        }
       </div>
     </div>
   );

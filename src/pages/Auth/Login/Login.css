@@ -73,14 +73,14 @@ border-radius: 25px;
 font-size: 1.2em;
 color: #fff;
 background: #6a11cb;
-background: linear-gradient(45deg, #6a11cb, #2575fc);
+background: linear-gradient(45deg, #6a11cb, #FE5007);
 cursor: pointer;
 transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover {
-background: #2575fc;
-background: linear-gradient(45deg, #2575fc, #6a11cb);
+background: #FE5007;
+background: linear-gradient(45deg, #FE5007, #6a11cb);
 }
 
 .register-option {

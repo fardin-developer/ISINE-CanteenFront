@@ -14,10 +14,12 @@
   justify-content: space-between;
   padding: 30px;
 }
+
 .profileNavLeft .img {
   color: white;
   filter: invert(1) brightness(100%) contrast(100%);
   cursor: pointer;
+ 
 }
 .profilebottom {
   background-color: rgb(215, 215, 215);
@@ -145,8 +147,13 @@
     align-items: center;
   }
   .profilebottom {
-    margin-top: 100px;
+    margin-top: 90px;
   }
+  .profileNavLeft{
+   padding: 0px 20px;
+   cursor: pointer;
+   margin-top: 10px;
+}
 
   .profile-options {
     flex-direction: row;
