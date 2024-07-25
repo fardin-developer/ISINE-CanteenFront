@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://canteen.fardindev.me'
+export const BASE_URL = 'https://canteen.fardindev.me/api/v1'
