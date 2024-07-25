@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PaymentButton = ({total}) => {
-  const upiId = '9864972356@jupiteraxis'
+  const upiId = '9742870340m@pnb'
   const amount = 100
   const payeeName = 'Fardin Mustaque'
   const transactionNote = 'Payment for services'

@@ -48,6 +48,10 @@ const Login = ({ onLogin }) => {
 
     setLoading(true);
     setError('');
+    const isFromLoginPage = () => {
+      // You might use a query parameter, local storage, or some state to determine this
+      return window.sessionStorage.getItem('fromLogin') === 'true';
+    };
 
     fetch(`${BASE_URL}/auth/login`, {
       method: 'POST',
@@ -56,6 +60,7 @@ const Login = ({ onLogin }) => {
       },
       body: JSON.stringify(formData),
     })
+    
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -66,7 +71,11 @@ const Login = ({ onLogin }) => {
           localStorage.setItem('user', JSON.stringify(data.user));
           onLogin(data.cookies);
           console.log(data.cookies);
-          navigate('/');
+          if (window.history.length > 2) {
+            navigate(-1); 
+          } else {
+            navigate('/'); 
+          }
         } else {
           setError('Invalid login credentials');
         }

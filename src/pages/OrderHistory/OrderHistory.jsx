@@ -29,7 +29,7 @@ const OrderHistory = () => {
           params.append('endDate', endDate.toISOString());
         }
         if ((range === 'custom' && startDate && endDate)) {
-          const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders?${params.toString()}`, {
+          const response = await fetch(`${BASE_URL}/orders/showAllMyOrders?${params.toString()}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -39,7 +39,7 @@ const OrderHistory = () => {
         }
         if ((range==='lastWeek'||'lastMonth'||'lastYear')) {
           if ((range === 'custom' && startDate && endDate)) {
-            const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders?${params.toString()}`, {
+            const response = await fetch(`${BASE_URL}/orders/showAllMyOrders?${params.toString()}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -49,7 +49,7 @@ const OrderHistory = () => {
           }
         }
         if (range==='') {
-          const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders`, {
+          const response = await fetch(`${BASE_URL}/orders/showAllMyOrders`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -145,7 +145,7 @@ const OrderHistory = () => {
         {
           orders.length === 0 && (
             <div className='noOrders'>
-              <h2>You have not order yet</h2>
+              <h2>No Orders available right now</h2>
               </div>
           )
         }

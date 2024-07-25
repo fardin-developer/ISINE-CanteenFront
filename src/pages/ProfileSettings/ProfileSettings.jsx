@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BASE_URL } from '../../api/baseUrl';
 import './ProfileSettings.css';
 
 const ProfileSettings = ({ user }) => {
@@ -34,7 +35,7 @@ const ProfileSettings = ({ user }) => {
     const handleNameSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/auth/update?token=${token}&name=${name}`, {
+            const response = await fetch(`${BASE_URL}/auth/update?token=${token}&name=${name}`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +73,7 @@ const ProfileSettings = ({ user }) => {
 
         try {
             
-            const response = await fetch(`http://localhost:8000/api/v1/auth/update?token=${token}&password=${password}`, {
+            const response = await fetch(`${BASE_URL}/auth/update?token=${token}&password=${password}`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',

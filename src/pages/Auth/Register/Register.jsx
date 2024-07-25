@@ -83,7 +83,7 @@ const Register = () => {
 
     try {
       console.log('Submitting form data');
-      const response = await axios.post('http://localhost:8000/api/v1/auth/register', formData, {
+      const response = await axios.post('${BASE_URL}/auth/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

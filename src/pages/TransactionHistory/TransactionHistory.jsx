@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './TransactionHistory.css';
+import { BASE_URL } from '../../api/baseUrl';
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
@@ -28,7 +29,7 @@ const TransactionHistory = () => {
           params.append('endDate', endDate.toISOString());
         }
 
-        const response = await fetch(`http://localhost:8000/api/v1/payment/showAllMyTransactions?${params.toString()}`, {
+        const response = await fetch(`${BASE_URL}/payment/showAllMyTransactions?${params.toString()}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

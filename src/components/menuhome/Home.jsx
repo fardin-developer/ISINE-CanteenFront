@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProductsCard from '../../components/MenuCard/Menucard';
 import Lottie from 'react-lottie';
 import filter from '../../../public/filter.json';
+import { BASE_URL } from '../../api/baseUrl';
 import './home.css';
 
 const Home = () => {
@@ -25,10 +26,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/v1/meals', {
+        const response = await fetch(`${BASE_URL}/meals`, {
           method: 'GET',
           headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnNkZmQiLCJ1c2VySWQiOiI2NjYzZjQ2NDA4Y2Y1NDVjNDQ5YWE2ZDQiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMDc3ODgxMSwiZXhwIjoxNzIwODY1MjExfQ.vPudsD8AruA2F9KfFRzr_WTKpQCUHxS2ZUYhd4r0Km0',
             'Content-Type': 'application/json'
           }
         });

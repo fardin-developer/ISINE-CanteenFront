@@ -11,7 +11,7 @@ const Payment = () => {
         <h1>Amount ₹ {total}</h1>
 
         <div className='paymentImg'>
-          <img src='payment.jpg' alt='' draggable ="false"/>
+          <img src='payment1.webp' alt='' draggable ="false"/>
         </div>
         <span>
           <h2>Or</h2>

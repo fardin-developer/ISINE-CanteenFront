@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { BASE_URL } from '../../api/baseUrl'
 import cartContext from '../context/cartContext'
 import './Cart.css'
 import axios from 'axios'
@@ -60,6 +61,9 @@ const Cart = () => {
       console.log(orderData)
 
       const token = JSON.parse(localStorage.getItem('cookies'));
+      if (!token) {
+        navigate('/login')
+      }
 
       const config = {
         headers: {
@@ -68,7 +72,7 @@ const Cart = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8000/api/v1/orders',
+        `${BASE_URL}/orders`,
         orderData,
         config
       )

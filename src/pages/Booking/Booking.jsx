@@ -29,7 +29,7 @@ const Booking = () => {
                     params.append('endDate', endDate.toISOString());
                 }
                 if ((range === 'custom' && startDate && endDate)) {
-                    const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders?${params.toString()}&status=pending`, {
+                    const response = await fetch(`${BASE_URL}/orders/showAllMyOrders?${params.toString()}&status=pending`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -39,7 +39,7 @@ const Booking = () => {
                 }
                 if ((range === 'lastWeek' || 'lastMonth' || 'lastYear')) {
                     if ((range === 'custom' && startDate && endDate)) {
-                        const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders?${params.toString()}&status=pending`, {
+                        const response = await fetch(`${BASE_URL}/orders/showAllMyOrders?${params.toString()}&status=pending`, {
                             headers: {
                                 Authorization: `Bearer ${token}`,
                             },
@@ -49,7 +49,7 @@ const Booking = () => {
                     }
                 }
                 if (range === '') {
-                    const response = await fetch(`http://localhost:8000/api/v1/orders/showAllMyOrders?status=pending`, {
+                    const response = await fetch(`${BASE_URL}/orders/showAllMyOrders?status=pending`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -144,8 +144,8 @@ const Booking = () => {
                 )}
                 {
                     orders.length === 0 && (
-                        <div className='noOrders'>
-                            <h2>You currently have no items booked</h2>
+                        <div className='noOrders' style={{display:'flex',justifyContent:'center', alignItems:'center',padding:'5px',height:'50vh'}}>
+                            <h2>You don't have any bookings at the moment</h2>
                         </div>
                     )
                 }

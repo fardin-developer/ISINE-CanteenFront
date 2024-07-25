@@ -1,7 +1,7 @@
 .header{
 
    margin:  30px auto 80px auto;
-   background: url('../../../public/homepage_img.jpeg') no-repeat;
+   background: url('/homepage_img.jpeg') no-repeat;
    background-size:cover;
    position: relative;
    width: 96%;
@@ -77,7 +77,7 @@
         width: 96%;
         
         height: 50vh;
-        background: url('../../../public/wallpaper.webp') no-repeat ;
+        background: url('/wallpaper.webp') no-repeat ;
          }
 
 
