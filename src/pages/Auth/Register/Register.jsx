@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
 import heic2any from 'heic2any';
+import { BASE_URL } from '../../../api/baseUrl';
 
 const Register = () => {
   const [registerFormData, setRegisterFormData] = useState({
@@ -67,6 +68,11 @@ const Register = () => {
       });
     }
   };
+  // In your /register page component
+useEffect(() => {
+  localStorage.setItem('fromRegister', 'true');
+}, []);
+
 
   const handleRegisterSubmit = async e => {
     e.preventDefault();
@@ -83,10 +89,12 @@ const Register = () => {
 
     try {
       console.log('Submitting form data');
-      const response = await axios.post('${BASE_URL}/auth/register', formData, {
+      const response = await axios.post(`${BASE_URL}/auth/register`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
-        }
+        },
+        withCredentials: true,
+
       });
       console.log('Registration successful:', response.data);
       navigate('/login');

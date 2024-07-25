@@ -71,7 +71,12 @@ const Login = ({ onLogin }) => {
           localStorage.setItem('user', JSON.stringify(data.user));
           onLogin(data.cookies);
           console.log(data.cookies);
-          if (window.history.length > 2) {
+      
+          const fromRegister = localStorage.getItem('fromRegister');
+          if (fromRegister) {
+            localStorage.removeItem('fromRegister'); // Clean up the flag
+            navigate('/');
+          } else if (window.history.length > 2) {
             navigate(-1); 
           } else {
             navigate('/'); 
@@ -79,7 +84,8 @@ const Login = ({ onLogin }) => {
         } else {
           setError('Invalid login credentials');
         }
-      })
+      })  
+      
       .catch((error) => {
         setLoading(false);
         setError('An error occurred. Please try again.');
