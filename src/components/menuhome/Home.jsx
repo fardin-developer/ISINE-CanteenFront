@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductsCard from '../../components/MenuCard/Menucard';
 import Lottie from 'react-lottie';
-import filter from '../../../public/filter.json';
+import filter from '/public/filter.json';
 import { BASE_URL } from '../../api/baseUrl';
 import './home.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../../public/feedback.json'; // Update the path to your Lottie animation JSON file
+import animationData from '/public/feedback.json'; // Update the path to your Lottie animation JSON file
 import './Feedback.css';
 
 const Feedback = () => {

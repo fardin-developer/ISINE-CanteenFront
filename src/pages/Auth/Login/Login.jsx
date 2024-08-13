@@ -52,6 +52,7 @@ const Login = ({ onLogin }) => {
       // You might use a query parameter, local storage, or some state to determine this
       return window.sessionStorage.getItem('fromLogin') === 'true';
     };
+    console.log(`${BASE_URL}/auth/login`);
 
     fetch(`${BASE_URL}/auth/login`, {
       method: 'POST',

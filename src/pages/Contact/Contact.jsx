@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../../public/lotti-animation.json'; 
+import animationData from '/public/lotti-animation.json'; 
 import './Contact.css';
 import FloatingWhatsAppButton from '../../components/FloatingButton/FloatingButton';
 const Contact = () => {

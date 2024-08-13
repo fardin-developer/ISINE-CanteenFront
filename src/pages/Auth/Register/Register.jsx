@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
@@ -9,17 +9,72 @@ const Register = () => {
   const [registerFormData, setRegisterFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
     rollNo: '',
     department: '',
     idProof: null
   });
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
+  const validateInput = (name, value) => {
+    let error = '';
+    switch (name) {
+      case 'name':
+        if (!value) {
+          error = 'Please provide name';
+        } else if (value.length < 3 || value.length > 30) {
+          error = 'Name must be between 3 and 30 characters';
+        }
+        break;
+      case 'email':
+        if (!value) {
+          error = 'Please provide email';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+          error = 'Please provide valid email';
+        }
+        break;
+      case 'phone':
+        if (!value) {
+          error = 'Please provide phone number';
+        } else if (!/^\d{10}$/.test(value)) {
+          error = 'Please provide a valid 10-digit phone number';
+        }
+        break;
+      case 'password':
+        if (!value) {
+          error = 'Please provide password';
+        } else if (value.length < 6) {
+          error = 'Password must be at least 6 characters';
+        }
+        break;
+      case 'rollNo':
+        if (!value) {
+          error = 'Please provide roll number';
+        }
+        break;
+      case 'department':
+        if (!value) {
+          error = 'Please provide department';
+        }
+        break;
+      case 'idProof':
+        if (!value) {
+          error = 'Please provide ID proof';
+        }
+        break;
+      default:
+        break;
+    }
+    setErrors(prevErrors => ({ ...prevErrors, [name]: error }));
+  };
+
   const handleRegisterChange = async e => {
     const { name, value, files } = e.target;
+    validateInput(name, files ? files[0] : value);
 
     if (name === 'idProof' && files.length > 0) {
       const file = files[0];
@@ -31,7 +86,7 @@ const Register = () => {
 
       if (file.name.toLowerCase().endsWith('.heic')) {
         try {
-          setLoading(true); // Start loading
+          setLoading(true);
           console.log('Starting conversion for file:', file.name);
 
           const convertedBlob = await heic2any({
@@ -53,7 +108,7 @@ const Register = () => {
           console.error('Error converting HEIC file:', error);
           alert('Error converting HEIC file. Please try again.');
         } finally {
-          setLoading(false); // End loading
+          setLoading(false);
         }
       } else {
         setRegisterFormData({
@@ -68,17 +123,32 @@ const Register = () => {
       });
     }
   };
-  // In your /register page component
-useEffect(() => {
-  localStorage.setItem('fromRegister', 'true');
-}, []);
 
+  useEffect(() => {
+    localStorage.setItem('fromRegister', 'true');
+  }, []);
 
   const handleRegisterSubmit = async e => {
     e.preventDefault();
+
+    // Check for errors before submitting
+    let formValid = true;
+    Object.keys(registerFormData).forEach(key => {
+      validateInput(key, registerFormData[key]);
+      if (errors[key]) {
+        formValid = false;
+      }
+    });
+
+    if (!formValid) {
+      alert('Please fix the errors in the form.');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('name', registerFormData.name);
     formData.append('email', registerFormData.email);
+    formData.append('phone', registerFormData.phone);
     formData.append('password', registerFormData.password);
     formData.append('rollno', registerFormData.rollNo);
     formData.append('dept', registerFormData.department);
@@ -93,14 +163,13 @@ useEffect(() => {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
-        withCredentials: true,
-
+        withCredentials: true
       });
       console.log('Registration successful:', response.data);
       navigate('/login');
     } catch (error) {
       console.error('Error during registration:', error);
-      alert('Registration failed. Please try again.');
+      alert(error.response.data.message);
     }
   };
 
@@ -118,6 +187,7 @@ useEffect(() => {
               onChange={handleRegisterChange}
               required
             />
+            {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className='form-group'>
             <label>Email</label>
@@ -128,6 +198,18 @@ useEffect(() => {
               onChange={handleRegisterChange}
               required
             />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
+          <div className='form-group'>
+            <label>Phone No. </label>
+            <input
+              type='tel'
+              name='phone'
+              value={registerFormData.phone}
+              onChange={handleRegisterChange}
+              required
+            />
+            {errors.phone && <span className="error">{errors.phone}</span>}
           </div>
           <div className='form-group'>
             <label>Password</label>
@@ -138,6 +220,7 @@ useEffect(() => {
               onChange={handleRegisterChange}
               required
             />
+            {errors.password && <span className="error">{errors.password}</span>}
           </div>
           <div className='form-group'>
             <label>Roll No</label>
@@ -148,6 +231,7 @@ useEffect(() => {
               onChange={handleRegisterChange}
               required
             />
+            {errors.rollNo && <span className="error">{errors.rollNo}</span>}
           </div>
           <div className='form-group'>
             <label>Department</label>
@@ -158,6 +242,7 @@ useEffect(() => {
               onChange={handleRegisterChange}
               required
             />
+            {errors.department && <span className="error">{errors.department}</span>}
           </div>
           <div className='form-group'>
             <label>ID Proof</label>
@@ -168,6 +253,7 @@ useEffect(() => {
               required
             />
             {loading && <div className="loading-spinner">Converting to JPG...</div>}
+            {errors.idProof && <span className="error">{errors.idProof}</span>}
           </div>
           {
             loading ? (
@@ -184,7 +270,6 @@ useEffect(() => {
               <button type='submit'>Register</button>
             )
           }
-
           <p className='toggle-link'>
             Already have an account? <Link to='/login' id='loginlink'>Login</Link>
           </p>
